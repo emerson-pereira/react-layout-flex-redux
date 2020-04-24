@@ -34,11 +34,11 @@ const HeaderStyles = styled.header`
   }
 `;
 
-const Header = () => {
+const Header = ({ toggleMenu }) => {
   return (
     <HeaderStyles>
       <div className="menu-button">
-        <button>&#9776;</button>
+        <button onClick={() => toggleMenu(true)}>&#9776;</button>
       </div>
       <div className="user">
         <p>Emerson Pereira</p>

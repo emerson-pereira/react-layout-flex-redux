@@ -81,10 +81,10 @@ const StartEnd = ({ event }) => (
   </>
 );
 
-const EventList = ({ events }) => {
+const EventList = ({ events, toggleForm }) => {
   return (
     <EventsStyled>
-      <button>Adicionar evento</button>
+      <button onClick={() => toggleForm(true)}>Adicionar evento</button>
       <div className="events-list">
         {events.map((event) => (
           <div key={event.title}>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const FormStyles = styled.form`
   max-width: 800px;
@@ -7,6 +7,19 @@ const FormStyles = styled.form`
   padding: 20px;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 10rem;
+  right: 0;
+  left: 0;
+  ${(props) => css`
+    visibility: ${props.hide ? "hidden" : "visible"};
+  `}
+  margin: 0 auto;
+  background: #fff;
+  width: 600px;
+  @media (max-width: 600px) {
+    width: 80vw;
+  }
   h3 {
     margin: 20px 0;
     font-weight: 500;
@@ -26,7 +39,7 @@ const FormStyles = styled.form`
   }
 `;
 
-const EventForm = ({ addEvent }) => {
+const EventForm = ({ addEvent, showForm, toggleForm }) => {
   const [event, setEvent] = useState({
     title: "",
     description: "",
@@ -39,7 +52,6 @@ const EventForm = ({ addEvent }) => {
   });
 
   const handleInput = (e) => {
-    console.log(e.target.value);
     setEvent({
       ...event,
       [e.target.name]: e.target.value,
@@ -71,7 +83,6 @@ const EventForm = ({ addEvent }) => {
     let date;
 
     const [year, month, day] = event[keyName + "Date"].split("-");
-    console.log([year, month, day]);
 
     if (hasHours) {
       const [hours, minutes] = event[keyName + "Time"].split(":");
@@ -108,10 +119,17 @@ const EventForm = ({ addEvent }) => {
         endTime: getTimeStamp("endTime", { hasHours: true }),
       });
     }
+    toggleForm(false);
+  };
+
+  const handleExit = (e) => {
+    e.preventDefault();
+
+    toggleForm(false);
   };
 
   return (
-    <FormStyles onSubmit={handleSubmit}>
+    <FormStyles hide={!showForm} onSubmit={handleSubmit}>
       <h3>Adicionar evento</h3>
       <label htmlFor="title">
         Título:
@@ -185,6 +203,7 @@ const EventForm = ({ addEvent }) => {
         </>
       )}
       <button type="submit">Enviar</button>
+      <button onClick={handleExit}>Cancelar</button>
     </FormStyles>
   );
 };

@@ -20,15 +20,20 @@ const Main = () => {
     setEvent([...events, location]);
   };
 
-  const removeEvent = () => {};
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <main>
       <EventsList
         events={events}
         addEvent={addEvent}
-        removeEvent={removeEvent}
+        toggleForm={setShowForm}
       />
-      <EventForm addEvent={addEvent} />
+      <EventForm
+        addEvent={addEvent}
+        showForm={showForm}
+        toggleForm={setShowForm}
+      />
     </main>
   );
 };
