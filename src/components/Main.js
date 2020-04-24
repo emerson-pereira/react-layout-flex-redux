@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EventsList from "./EventsList";
 import EventForm from "./EventForm";
 
-const Dashboard = () => {
+const Main = () => {
   const [events, setEvent] = useState([
     {
       title: "Conferência de negócios",
@@ -16,21 +16,21 @@ const Dashboard = () => {
     },
   ]);
 
-  const addLocation = (location) => {
+  const addEvent = (location) => {
     setEvent([...events, location]);
   };
 
-  const removeLocation = () => {};
+  const removeEvent = () => {};
   return (
     <main>
       <EventsList
         events={events}
-        addLocation={addLocation}
-        removeLocation={removeLocation}
+        addEvent={addEvent}
+        removeEvent={removeEvent}
       />
-      <EventForm addLocation={addLocation} />
+      <EventForm addEvent={addEvent} />
     </main>
   );
 };
 
-export default Dashboard;
+export default Main;
