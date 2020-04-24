@@ -2,13 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const HeaderStyles = styled.header`
-  background: #ccc;
+  background: #f2f2f2;
   display: flex;
   justify-content: space-between;
   height: 100px;
-  & > div {
-    /* border: 2px solid #666; */
-  }
   .menu-button {
     display: flex;
     align-items: center;

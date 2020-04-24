@@ -15,8 +15,8 @@ const MenuStyles = styled.section`
   `}
   transition: all 300ms;
   .title {
-    border-bottom: 1px solid #333;
-    height: 100px;
+    border-bottom: 2px solid #333;
+    height: 98px;
     display: flex;
     h1 {
       margin: 0 20px;
