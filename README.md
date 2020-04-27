@@ -1,4 +1,4 @@
-Mosyle test
+Layout Example Redux
 
 > By Emerson Pereira
 > (emerson@emersonpereira.me)

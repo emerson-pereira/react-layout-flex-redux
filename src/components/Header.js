@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../actions";
 
 const HeaderStyles = styled.header`
   background: #f2f2f2;
@@ -34,11 +36,13 @@ const HeaderStyles = styled.header`
   }
 `;
 
-const Header = ({ toggleMenu }) => {
+const Header = () => {
+  const dispatch = useDispatch();
+
   return (
     <HeaderStyles>
       <div className="menu-button">
-        <button onClick={() => toggleMenu(true)}>&#9776;</button>
+        <button onClick={() => dispatch(toggleMenu())}>&#9776;</button>
       </div>
       <div className="user">
         <p>Emerson Pereira</p>

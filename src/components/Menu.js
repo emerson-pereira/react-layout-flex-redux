@@ -1,5 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleMenu } from "../actions";
 
 const MenuStyles = styled.section`
   background: #ccc;
@@ -52,12 +54,15 @@ const MenuStyles = styled.section`
   }
 `;
 
-const Menu = ({ showMenu, toggleMenu }) => {
+const Menu = () => {
+  const isMenuOpen = useSelector((state) => state.menu);
+  const dispatch = useDispatch();
+
   return (
-    <MenuStyles hide={!showMenu}>
+    <MenuStyles hide={!isMenuOpen}>
       <div className="title">
-        <h1>Mosyle test</h1>
-        <button className="close" onClick={() => toggleMenu(false)}>
+        <h1>Layout example with Redux</h1>
+        <button className="close" onClick={() => dispatch(toggleMenu())}>
           X
         </button>
       </div>
