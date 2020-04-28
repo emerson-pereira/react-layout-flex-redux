@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const EventsStyled = styled.div`
-  max-width: 1000px;
+  max-width: calc(1000px + 2px);
   @media (max-width: 1000px) {
     max-width: 600px;
   }
@@ -17,9 +17,9 @@ const EventsStyled = styled.div`
     }
   }
   .events-list {
+    background: #f2f2f2;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
     margin-top: 20px;
     @media (max-width: 600px) {
       justify-content: center;
@@ -37,9 +37,10 @@ const EventsStyled = styled.div`
       }
     }
     & > div {
+      background: #fff;
       border: 2px solid #ccc;
       padding: 20px;
-      margin: 0 0 20px 0;
+      margin: 20px;
       width: 250px;
     }
   }
