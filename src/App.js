@@ -9,6 +9,8 @@ import reducers from "./reducers";
 
 const store = createStore(reducers);
 
+// teste
+
 const App = () => {
   return (
     <Provider store={store}>
