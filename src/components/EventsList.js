@@ -40,6 +40,7 @@ const EventList = ({ events, toggleForm }) => {
   return (
     <EventsStyled>
       <button onClick={() => toggleForm(true)}>Adicionar evento</button>
+
       <div className="events-list">
         {events.map((event) => (
           <div key={event.title}>
@@ -55,6 +56,11 @@ const EventList = ({ events, toggleForm }) => {
             )}
           </div>
         ))}
+        {[null, null]
+          .slice(events.length % 3 === 1 ? 0 : events.length % 3 === 2 ? 1 : 2)
+          .map(() => (
+            <div className="spacer"></div>
+          ))}
       </div>
     </EventsStyled>
   );

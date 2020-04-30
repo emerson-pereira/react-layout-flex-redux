@@ -1,26 +1,30 @@
 import styled from "styled-components";
 
 const EventsStyled = styled.div`
-  max-width: calc(1000px + 2px);
-  @media (max-width: 1000px) {
+  max-width: calc(750px + 186px);
+  @media (max-width: calc(750px + 186px)) {
     max-width: 600px;
   }
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 40px 20px;
   button {
-    background: #f2f2f2;
+    background: #fff;
     border: 1px solid #ccc;
     padding: 10px;
+    display: flex;
     @media (max-width: 600px) {
-      display: flex;
       margin: auto;
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
   .events-list {
-    background: #f2f2f2;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
     margin-top: 20px;
+    /* border: 1px solid #000; */
     @media (max-width: 600px) {
       justify-content: center;
     }
@@ -38,10 +42,17 @@ const EventsStyled = styled.div`
     }
     & > div {
       background: #fff;
-      border: 2px solid #ccc;
+      border: 1px solid #ccc;
       padding: 20px;
-      margin: 20px;
+      margin: 10px 0;
       width: 250px;
+      &.spacer {
+        border: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
     }
   }
 `;
